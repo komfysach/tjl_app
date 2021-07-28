@@ -26,18 +26,16 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
             child: Container(
-              color: Colors.black,
               child: Image.asset('assets/images/logo.png'),
             ),
           ),
           Expanded(
             child: Container(
-              color: Colors.black,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

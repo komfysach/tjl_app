@@ -9,7 +9,7 @@ Widget textField({
     decoration: InputDecoration(
         prefixIcon: Icon(icon, color: iconColor),
         hintText: hintText,
-        hintStyle: TextStyle(color: Colors.white, fontFamily: "SourceCodePro"),
+        hintStyle: TextStyle(color: Colors.white, fontFamily: "NeutralFace"),
         enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.amber.shade600))),
   );
@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
               style: TextStyle(
                 color: Colors.amber.shade600,
                 fontFamily: "Stanley",
-                fontSize: 45,
+                fontSize: 55,
               ),
             ),
             Column(
@@ -74,7 +74,10 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {},
                 child: Text(
                   "Login",
-                  style: TextStyle(fontFamily: 'SourceCodePro', fontSize: 20),
+                  style: TextStyle(
+                      fontFamily: 'NeutralFace',
+                      fontSize: 12,
+                      letterSpacing: 5),
                 ),
               ),
             ),
@@ -85,13 +88,13 @@ class LoginPage extends StatelessWidget {
                   Text(
                     "New user? ",
                     style: TextStyle(
-                        color: Colors.white, fontFamily: "SourceCodePro"),
+                        color: Colors.white, fontFamily: "NeutralFace"),
                   ),
                   Text(
                     "Register",
                     style: TextStyle(
                         color: Colors.amber.shade600,
-                        fontFamily: "SourceCodePro"),
+                        fontFamily: "NeutralFace"),
                   )
                 ],
               ),

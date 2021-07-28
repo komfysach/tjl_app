@@ -63,10 +63,10 @@ flutter:
       fonts:
         - asset: assets/fonts/Stanley.otf
     #         style: italic
-    - family: SourceCodePro
+    - family: NeutralFace
       fonts:
-        - asset: assets/fonts/SourceCodePro-ExtraLight.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
+        - asset: assets/fonts/NeutralFace.otf
+        - asset: assets/fonts/NeutralFace-Bold.otf
   #         weight: 700
   #
   # For details regarding fonts from package dependencies,

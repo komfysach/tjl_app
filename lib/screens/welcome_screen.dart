@@ -17,7 +17,7 @@ class WelcomePage extends StatelessWidget {
         onPressed: () {},
         child: Text(
           name,
-          style: TextStyle(fontFamily: 'SourceCodePro'),
+          style: TextStyle(fontFamily: 'NeutralFace'),
         ),
       ),
     );
@@ -53,12 +53,12 @@ class WelcomePage extends StatelessWidget {
                       Text(
                         "Order food at our restaurant and",
                         style: TextStyle(
-                            color: Colors.white, fontFamily: 'SourceCodePro'),
+                            color: Colors.white, fontFamily: 'NeutralFace'),
                       ),
                       Text(
                         "make a booking with ease",
                         style: TextStyle(
-                            color: Colors.white, fontFamily: 'SourceCodePro'),
+                            color: Colors.white, fontFamily: 'NeutralFace'),
                       ),
                     ],
                   ),

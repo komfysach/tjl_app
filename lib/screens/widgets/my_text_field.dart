@@ -19,6 +19,7 @@ class MyTextField extends StatelessWidget {
     return TextFormField(
       validator: validator,
       obscureText: obscureText,
+      style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
           prefixIcon: Icon(icon, color: iconColor),
           hintText: hintText,

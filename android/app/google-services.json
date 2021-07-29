@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "505814924246",
+    "project_id": "tjl-app",
+    "storage_bucket": "tjl-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505814924246:android:b115561c02a440bfe34277",
+        "android_client_info": {
+          "package_name": "com.example.tjl_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505814924246-qutt02v0nv4i79eq1357lbm6tkrrgkq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOFlrZX1nlZlFZxeiA4BIzOKueyQJvUgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505814924246-qutt02v0nv4i79eq1357lbm6tkrrgkq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

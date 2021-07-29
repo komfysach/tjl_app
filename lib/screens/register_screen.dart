@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:tjl_app/screens/widgets/my_text_field.dart';
 
@@ -14,6 +16,36 @@ class RegisterForm extends StatefulWidget {
 class RegisterFormState extends State<RegisterForm> {
   final regExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
   final _formKey = GlobalKey<FormState>();
+  late UserCredential userCredential;
+  TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  Future sendData() async {
+    try {
+      userCredential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+              email: email.text, password: password.text);
+
+      await FirebaseFirestore.instance
+          .collection('userData')
+          .doc(userCredential.user!.uid)
+          .set({
+        'name': name.text.trim(),
+        'email': email.text.trim(),
+        'userId': userCredential.user!.uid,
+        'password': password.text.trim(),
+      });
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +85,11 @@ class RegisterFormState extends State<RegisterForm> {
                     icon: Icons.person_add_alt_1_outlined,
                     iconColor: Colors.white,
                     validator: (value) {
+                      value = name.text.trim();
                       if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
+                        return 'Please enter your name';
                       }
-                      return null;
+                      return value;
                     },
                   ),
                   SizedBox(
@@ -68,12 +101,13 @@ class RegisterFormState extends State<RegisterForm> {
                     icon: Icons.mail_outline,
                     iconColor: Colors.white,
                     validator: (value) {
+                      value = email.text.trim();
                       if (value == null || value.isEmpty) {
                         return 'Email is empty';
                       } else if (!regExp.hasMatch(value)) {
                         return 'Please enter a valid email';
                       }
-                      return null;
+                      return value;
                     },
                   ),
                   SizedBox(
@@ -85,10 +119,11 @@ class RegisterFormState extends State<RegisterForm> {
                     icon: Icons.person_add_alt_1_outlined,
                     iconColor: Colors.white,
                     validator: (value) {
+                      value = password.text.trim();
                       if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
+                        return 'Please enter a password';
                       }
-                      return null;
+                      return value;
                     },
                   ),
                   SizedBox(
@@ -100,10 +135,14 @@ class RegisterFormState extends State<RegisterForm> {
                     icon: Icons.person_add_alt_1_outlined,
                     iconColor: Colors.white,
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
+                      value = password.text.trim();
+                      if (value == null ||
+                          value.isEmpty ||
+                          password == password) {
+                        return 'Please make sure passwords match';
+                      } else {
+                        sendData();
                       }
-                      return null;
                     },
                   ),
                 ],
